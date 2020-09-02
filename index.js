@@ -17,7 +17,17 @@ var mimickedReactEvents = {
     onSelectionChange: 'onSelect'
 };
 
-module.exports = function retargetEvents(shadowRoot) {
+var defaultOptions = {
+    dispatchDegradedOnMouseLeaveEvents: true
+};
+
+module.exports = function retargetEvents(shadowRoot, options = defaultOptions) {
+    var mimickedReactEvents = Object.assign({}, defaultMimickedReactEvents);
+    if (options.dispatchDegradedOnMouseLeaveEvents) {
+        mimickedReactEvents.onMouseOut = 'onMouseLeave';
+        mimickedReactEvents.onMouseOver = 'onMouseEnter';
+    }
+
     var removeEventListeners = [];
 
     reactEvents.forEach(function (reactEventName) {
