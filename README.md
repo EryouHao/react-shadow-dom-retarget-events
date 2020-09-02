@@ -1,4 +1,6 @@
-# react-shadow-dom-retarget-events
+# react-shadow-dom-retarget-events-plus
+
+> fork from: [react-shadow-dom-retarget-events](https://github.com/spring-media/react-shadow-dom-retarget-events)
 
 ## What it does
 
@@ -20,9 +22,9 @@ This repo is based on his answer in an npm module.
 
 ## Installation
 
-`yarn add react-shadow-dom-retarget-events` or
+`yarn add react-shadow-dom-retarget-events-plus` or
 
-`npm install react-shadow-dom-retarget-events --save`
+`npm install react-shadow-dom-retarget-events-plus --save`
 
 ## Usage
 
@@ -30,7 +32,7 @@ import `retargetEvents` and call it with the `shadowRoot`:
 
 ```jsx
 import React from 'react';
-import retargetEvents from 'react-shadow-dom-retarget-events';
+import retargetEvents from 'react-shadow-dom-retarget-events-plus';
 
 class App extends React.Component {
   render() {
@@ -53,6 +55,7 @@ document.registerElement('my-custom-element', {prototype: proto});
 ```
 ## History
 
+* v1.0.13 Add `onMouseLeave` & `onMouseEnter` replace by `onMouseOut` & `onMouseOver`
 * v1.08 Support for cancelBubble and FireFox's composedPath
 * v1.07 Support for onBlur
 * v1.06 Support von React 16, Added Events, Code Cleanup

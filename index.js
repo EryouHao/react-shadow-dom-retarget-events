@@ -14,20 +14,12 @@ var divergentNativeEvents = {
 var mimickedReactEvents = {
     onInput: 'onChange',
     onFocusOut: 'onBlur',
-    onSelectionChange: 'onSelect'
+    onSelectionChange: 'onSelect',
+    onMouseOut: 'onMouseLeave',
+    onMouseOver: 'onMouseEnter'
 };
 
-var defaultOptions = {
-    dispatchDegradedOnMouseLeaveEvents: true
-};
-
-module.exports = function retargetEvents(shadowRoot, options = defaultOptions) {
-    var mimickedReactEvents = Object.assign({}, defaultMimickedReactEvents);
-    if (options.dispatchDegradedOnMouseLeaveEvents) {
-        mimickedReactEvents.onMouseOut = 'onMouseLeave';
-        mimickedReactEvents.onMouseOver = 'onMouseEnter';
-    }
-
+module.exports = function retargetEvents(shadowRoot) {
     var removeEventListeners = [];
 
     reactEvents.forEach(function (reactEventName) {
